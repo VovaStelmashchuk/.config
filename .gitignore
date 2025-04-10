@@ -1,0 +1,6 @@
+# Ignore everything in the directory
+/*
+!.gitignore
+
+!wezterm/
+!nvim/
