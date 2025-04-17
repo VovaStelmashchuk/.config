@@ -1,36 +1,24 @@
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.softtabstop = 2
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-vim.opt.scrolloff = 8
+require "config.lazy"
+require "config.keymaps"
+require "config.options"
 
-vim.g.mapleader = " "
+local ts_server = vim.g.lsp_typescript_server or "ts_ls" -- "ts_ls" or "vtsls" for TypeScript
 
+-- Enable LSP servers for Neovim 0.11+
+vim.lsp.enable {
+  -- ts_server,
+  "lua_ls", -- Lua
+  --"biome", -- Biome = Eslint + Prettier
+  --"json", -- JSON
+  --"pyright", -- Python
+  --"gopls", -- Go
+  --"tailwindcss", -- Tailwind CSS
+}
 
-require('dvorak_keymap')
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup("plugins")
-
-local utils = require('utils')
-
-if utils.is_macos() then
-  vim.o.clipboard = 'unnamedplus'
+-- Load Lsp on-demand, e.g: eslint is disable by default
+-- e.g: We could enable eslint by set vim.g.lsp_on_demands = {"eslint"}
+if vim.g.lsp_on_demands then
+  vim.lsp.enable(vim.g.lsp_on_demands)
 end
 
 vim.api.nvim_set_keymap('n', 'y', '"+y', { noremap = true, silent = true })
