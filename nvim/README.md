@@ -16,3 +16,5 @@ npm install -g typescript typescript-language-server
 npm i -g vscode-langservers-extracted
 npm install -g @tailwindcss/language-server
 pip install pyright
+```
+
