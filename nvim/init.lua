@@ -4,15 +4,13 @@ require "config.options"
 
 local ts_server = vim.g.lsp_typescript_server or "ts_ls" -- "ts_ls" or "vtsls" for TypeScript
 
--- Enable LSP servers for Neovim 0.11+
 vim.lsp.enable {
-  -- ts_server,
-  "lua_ls", -- Lua
+  ts_server,
+  "lua_ls",
+  "json",
+  "tailwindcss",
+  "pyright",
   --"biome", -- Biome = Eslint + Prettier
-  --"json", -- JSON
-  --"pyright", -- Python
-  --"gopls", -- Go
-  --"tailwindcss", -- Tailwind CSS
 }
 
 -- Load Lsp on-demand, e.g: eslint is disable by default
