@@ -1,6 +1,6 @@
+require "config.options"
 require "config.lazy"
 require "config.keymaps"
-require "config.options"
 
 local ts_server = vim.g.lsp_typescript_server or "ts_ls" -- "ts_ls" or "vtsls" for TypeScript
 
