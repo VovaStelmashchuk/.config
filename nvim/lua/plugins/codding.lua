@@ -1,4 +1,4 @@
-local completion = vim.g.completion_mode or "blink" -- or 'native'
+local completion = vim.g.completion_mode or 'native'
 
 return {
   {
@@ -158,13 +158,6 @@ return {
       },
     },
   },
-  -- Markdown
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
-    opts = {},
-    optional = true,
-  },
   {
     "saghen/blink.cmp",
     opts = {
@@ -198,10 +191,15 @@ return {
       },
     },
   },
-  -- Auto pairs
   {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
     opts = {},
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+    opts = {},
+    optional = true,
   },
 }
