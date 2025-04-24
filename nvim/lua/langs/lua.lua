@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
-    opts = { ensure_installed = { "vim", "regex", "lua", "bash" } },
+    opts = { ensure_installed = { "vim", "regex", "lua", "bash", "vue" } },
   },
   {
     "folke/lazydev.nvim",

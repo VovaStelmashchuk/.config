@@ -10,6 +10,7 @@ vim.lsp.enable {
   "json",
   "tailwindcss",
   "pyright",
+  "vue_ls",
   --"biome", -- Biome = Eslint + Prettier
 }
 
