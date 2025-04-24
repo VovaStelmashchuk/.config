@@ -13,7 +13,7 @@ The setup include the following:
 Installation of LSP servers
 ```bash
 npm install -g typescript typescript-language-server
-npm i -g vscode-langservers-extracted
+npm install -g vscode-langservers-extracted
 npm install -g @tailwindcss/language-server
 pip install pyright
 ```

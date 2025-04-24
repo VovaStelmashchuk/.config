@@ -43,10 +43,7 @@ return {
     "saghen/blink.cmp",
     event = "InsertEnter",
     enable = completion == "blink",
-    -- use a release tag to download pre-built binaries
-    version = "1.*",
-    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    -- build = 'cargo build --release',
+    version = "1.1.1",
     dependencies = {
       {
         -- optional: provides snippets for the snippet source
@@ -155,11 +152,5 @@ return {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
     opts = {},
-  },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
-    opts = {},
-    optional = true,
   },
 }
