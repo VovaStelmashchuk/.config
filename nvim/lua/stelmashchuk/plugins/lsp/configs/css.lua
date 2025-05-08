@@ -26,6 +26,14 @@ function M.setup()
 				lint = {
 					unknownAtRules = "ignore",
 				},
+				hover = {
+					documentation = true,
+					references = true,
+				},
+				completion = {
+					triggerPropertyValueCompletion = true,
+					completePropertyWithSemicolon = true,
+				},
 			},
 			less = {
 				validate = true,

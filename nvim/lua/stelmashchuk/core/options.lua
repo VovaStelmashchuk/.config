@@ -31,8 +31,9 @@ opt.swapfile = false -- Do not create swap files
 opt.clipboard:append("unnamedplus") -- Use system clipboard
 
 -- Code folding settings
-opt.foldmethod = "indent" -- Fold based on indentation
-opt.foldlevel = 99 -- Start with all folds open
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99 -- Start with all folds open
 
 -- Boost the reactivity of the editor (lsp)
 vim.opt.updatetime = 100
