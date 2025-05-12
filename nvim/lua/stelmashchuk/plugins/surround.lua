@@ -3,5 +3,5 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	event = { "BufReadPre", "BufNewFile" },
 	version = "*",
-	config = true
+	config = true,
 }

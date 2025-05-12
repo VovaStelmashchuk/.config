@@ -11,20 +11,6 @@ local function remap(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
-remap("n", "n", "h", { desc = "left" })
-remap("n", "s", "l", { desc = "right" })
-
-remap("v", "n", "h", { desc = "left" })
-remap("v", "s", "l", { desc = "right" })
-
--- Normal mode split navigation
-remap("n", "<C-w>n", "<C-w>h", { desc = "Move to left split" })
-remap("n", "<C-w>s", "<C-w>l", { desc = "Move to right split" })
-
--- Visual mode split navigation
-remap("v", "<C-w>n", "<C-w>h", { desc = "Move to left split" })
-remap("v", "<C-w>s", "<C-w>l", { desc = "Move to right split" })
-
 local keymap = vim.keymap
 local keymapOptionsWithDesc = function(desc)
 	return { noremap = true, silent = true, desc = desc }
@@ -56,6 +42,3 @@ keymap.set("n", "]d", vim.diagnostic.goto_next, keymapOptionsWithDesc("Next diag
 
 -- Search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear search highlights"))
-
--- Format
-keymap.set("n", "<leader>ll", vim.lsp.buf.format, keymapOptionsWithDesc("Format file"))
