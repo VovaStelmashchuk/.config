@@ -16,6 +16,22 @@ git fetch
 git checkout -b main origin/main
 ```
 
+## Symlink Cursor Settings
+
+To use the version-controlled settings and keybindings with Cursor, run the following commands in your terminal:
+
+```sh
+# Create the target directory if it doesn't exist
+mkdir -p ~/.cursor
+
+# Symlink settings.json
+ln -sf ~/.config/cursor/settings.json ~/.cursor/settings.json
+
+# Symlink keybindings.json
+ln -sf ~/.config/cursor/keybindings.json ~/.cursor/keybindings.json
+```
+
+This will ensure that Cursor uses the settings and keybindings you keep in your `.config` repo.
 
 ## Vova's NeoVim configuration
 Minimal and developer-centric Neovim config for crud development (JS + Vue).
