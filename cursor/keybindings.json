@@ -13,5 +13,25 @@
         "key": "enter",
         "command": "list.select",
         "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "cmd+1",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "cmd+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "cursor.chat.focus"
+    },
+    {
+        "key": "ctrl+cmd+w",
+        "command": "workbench.action.closeOtherEditors"
     }
 ]
