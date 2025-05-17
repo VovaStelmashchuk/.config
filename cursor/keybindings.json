@@ -38,5 +38,9 @@
         "key": "cmd+alt+z",
         "command": "git.revertSelectedRanges",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+alt+t",
+        "command": "workbench.action.terminal.focus"
     }
 ]
