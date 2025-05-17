@@ -33,5 +33,10 @@
     {
         "key": "ctrl+cmd+w",
         "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "cmd+alt+z",
+        "command": "git.revertSelectedRanges",
+        "when": "editorTextFocus"
     }
 ]

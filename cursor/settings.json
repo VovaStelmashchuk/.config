@@ -13,6 +13,7 @@
         },
         {
             "before": [
+                "<leader>",
                 "s",
                 "h"
             ],
@@ -22,39 +23,12 @@
         },
         {
             "before": [
+                "<leader>",
                 "s",
                 "v"
             ],
             "commands": [
                 "workbench.action.splitEditorRight"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "x"
-            ],
-            "commands": [
-                "workbench.action.closeActiveEditor"
-            ]
-        },
-        {
-            "before": [
-                "s",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.closeOtherEditors"
-            ]
-        },
-        {
-            "before": [
-                "P"
-            ],
-            "after": [
-                "\"",
-                "0",
-                "p"
             ]
         },
         {
@@ -185,5 +159,6 @@
     "files.autoSave": "afterDelay",
     "workbench.list.keyboardNavigation": "simple",
     "workbench.list.automaticKeyboardNavigation": true,
-    "keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
+    "explorer.confirmDelete": false
 }
