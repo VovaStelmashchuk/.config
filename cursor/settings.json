@@ -79,6 +79,16 @@
         {
             "before": [
                 "<leader>",
+                "c",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "r",
                 "n"
             ],
@@ -163,5 +173,11 @@
     "explorer.confirmDelete": false,
     "[vue]": {
         "editor.defaultFormatter": "Vue.volar"
-    }
+    },
+    "editor.fontSize": 13,
+    "chat.editor.fontSize": 13,
+    "editor.fontFamily": "'0xProto Nerd Font'",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ]
 }
