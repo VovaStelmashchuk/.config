@@ -1,0 +1,9 @@
+github.vscode-github-actions
+kevinrose.vsc-python-indent
+ms-azuretools.vscode-docker
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+redhat.vscode-xml
+vscodevim.vim
+vue.volar
