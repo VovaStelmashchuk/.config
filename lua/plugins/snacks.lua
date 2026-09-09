@@ -45,6 +45,7 @@ return {
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
     { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
     { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
@@ -56,11 +57,5 @@ return {
     -- notifications
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-    -- terminal
-    { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
-    { "<c-/>", "<cmd>close<cr>", mode = "t", desc = "Hide Terminal" },
-    -- word references
-    { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
-    { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
   },
 }

@@ -98,10 +98,10 @@ return {
 
           -- stylua: ignore start
           map("<leader>cl", function() Snacks.picker.lsp_config() end, "Lsp Info")
-          map("gd", vim.lsp.buf.definition, "Goto Definition")
-          map("gr", vim.lsp.buf.references, "References")
-          map("gI", vim.lsp.buf.implementation, "Goto Implementation")
-          map("gy", vim.lsp.buf.type_definition, "Goto T[y]pe Definition")
+          map("gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition")
+          map("gr", function() Snacks.picker.lsp_references() end, "References (Find Usages)")
+          map("gI", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
+          map("gy", function() Snacks.picker.lsp_type_definitions() end, "Goto T[y]pe Definition")
           map("gD", vim.lsp.buf.declaration, "Goto Declaration")
           map("K", function() return vim.lsp.buf.hover() end, "Hover")
           map("gK", function() return vim.lsp.buf.signature_help() end, "Signature Help")
