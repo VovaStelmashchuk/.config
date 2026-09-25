@@ -1,0 +1,99 @@
+---
+- name: Setup Ubuntu 24.04 Dev VM
+  hosts: all
+  become: yes
+  vars:
+    nvim_repo: "https://github.com/neovim/neovim.git"
+    nvim_dest: "/usr/local/src/neovim"
+    ubuntu_version_codename: "noble" # Ubuntu 24.04
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install htop and prerequisites
+      apt:
+        name: 
+          - htop
+          - curl
+          - git
+          - ca-certificates
+          - gnupg
+        state: present
+
+    # --- Docker Installation ---
+    - name: Create directory for Docker keyring
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: '0755'
+
+    - name: Add Docker GPG key
+      get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /etc/apt/keyrings/docker.asc
+        mode: '0644'
+        force: yes
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ubuntu_version_codename }} stable"
+        state: present
+        update_cache: yes
+
+    - name: Install Docker packages
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+
+    - name: Ensure docker group exists
+      group:
+        name: docker
+        state: present
+
+    - name: Add current user to docker group (optional but recommended)
+      user:
+        name: "{{ ansible_user | default(lookup('env', 'USER')) }}"
+        groups: docker
+        append: yes
+      ignore_errors: yes
+
+    # --- Neovim from Master Branch Installation ---
+    - name: Install Neovim build dependencies
+      apt:
+        name:
+          - ninja-build
+          - gettext
+          - cmake
+          - unzip
+          - curl
+          - build-essential
+        state: present
+
+    - name: Clone Neovim repository (master branch)
+      git:
+        repo: "{{ nvim_repo }}"
+        dest: "{{ nvim_dest }}"
+        version: master
+        depth: 1
+        force: yes
+      register: nvim_repo_status
+
+    - name: Build Neovim
+      command: make CMAKE_BUILD_TYPE=RelWithDebInfo
+      args:
+        chdir: "{{ nvim_dest }}"
+      when: nvim_repo_status.changed
+
+    - name: Install Neovim
+      command: make install
+      args:
+        chdir: "{{ nvim_dest }}"
+      when: nvim_repo_status.changed

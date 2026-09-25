@@ -2,3 +2,4 @@
 !/nvim/
 !/git/
 !/.gitignore
+!/ansible/
